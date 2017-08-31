@@ -102,8 +102,6 @@
       return false;
     },
 
-
-
     // COLUMNS - run from top to bottom
     // --------------------------------------------------------------
     //
@@ -184,11 +182,53 @@
     //
     // test if a specific minor diagonal on this board contains a conflict
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
+      var thisBoard = this.rows();
+      var n = this.attributes.n;
+      var count = 0;
+
+      if (minorDiagonalColumnIndexAtFirstRow <= (n - 1)) {
+        for (var i = 0; i <= minorDiagonalColumnIndexAtFirstRow; i++) {
+          count += thisBoard[i][minorDiagonalColumnIndexAtFirstRow - i];
+          if (count > 1) {
+            return true;
+          }
+        }
+        //[0][1]
+        //[1][0]
+
+        //[0][2]
+        //[1][1]
+        //[2][0]
+
+        //[0][3]
+        //[1][2]
+        //[2][1]
+        //[3][0]
+
+      } else {
+        for (var i = 1; i <= n - 1; i++) {
+          count += thisBoard[i][minorDiagonalColumnIndexAtFirstRow - i];
+          if (count > 1) {
+            return true;
+          }
+        }
+        // diagonal 4 for a 4x4 board
+        //[1][3]
+        //[2][2]
+        //[3][1]
+      }
       return false;
     },
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
+
+      var n = this.attributes.n;
+      for (var i = 1; i <= n + 1; i++) {
+        if (this.hasMinorDiagonalConflictAt(i)) {
+          return true;
+        }
+      }
       return false;
     }
 

@@ -1,4 +1,4 @@
-// This file is a Backbone View.
+  // This file is a Backbone View.
 // It's part of the board visualizer
 
 (function() {

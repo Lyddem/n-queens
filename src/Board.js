@@ -157,13 +157,6 @@
       }
       return false;
     },
-    //n = 5
-    //input = -2
-    // index = 2
-    // [2][0]
-    // [3][1]
-    // [4][2]
-    // [5][3]
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
@@ -193,29 +186,14 @@
             return true;
           }
         }
-        //[0][1]
-        //[1][0]
-
-        //[0][2]
-        //[1][1]
-        //[2][0]
-
-        //[0][3]
-        //[1][2]
-        //[2][1]
-        //[3][0]
 
       } else {
-        for (var i = 1; i <= n - 1; i++) {
+        for (var i = minorDiagonalColumnIndexAtFirstRow - n + 1; i <= n - 1; i++) {
           count += thisBoard[i][minorDiagonalColumnIndexAtFirstRow - i];
           if (count > 1) {
             return true;
           }
         }
-        // diagonal 4 for a 4x4 board
-        //[1][3]
-        //[2][2]
-        //[3][1]
       }
       return false;
     },

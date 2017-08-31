@@ -62,7 +62,7 @@
     },
 
 
-/*
+    /*
          _             _     _
      ___| |_ __ _ _ __| |_  | |__   ___ _ __ ___ _
     / __| __/ _` | '__| __| | '_ \ / _ \ '__/ _ (_)
@@ -140,9 +140,9 @@
       var thisBoard = this.rows();
       var count = 0;
       var index;
-      if(majorDiagonalColumnIndexAtFirstRow >=0) {
+      if (majorDiagonalColumnIndexAtFirstRow >= 0) {
         index = majorDiagonalColumnIndexAtFirstRow;
-        for(var i = 0; i < thisBoard.length - index; i++) {
+        for (var i = 0; i < thisBoard.length - index; i++) {
           count += thisBoard[i][index + i];
           if (count > 1) {
             return true;
@@ -150,7 +150,7 @@
         }
       } else {
         index = Math.abs(majorDiagonalColumnIndexAtFirstRow);
-        for(var i = index; i < thisBoard.length; i++) {
+        for (var i = index; i < thisBoard.length; i++) {
           count += thisBoard[i][i - index];
           if (count > 1) {
             return true;
@@ -189,7 +189,7 @@
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
-     return false;
+      return false;
     }
 
     /*--------------------  End of Helper Functions  ---------------------*/
